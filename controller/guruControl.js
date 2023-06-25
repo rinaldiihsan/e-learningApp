@@ -13,7 +13,7 @@ const getGuru = (res) => {
 
 const getGuruByNIP = (req, res) => {
   const nip = req.params.nip;
-  const sql = ' SELECT * FROM guru WHERE nip = ?';
+  const sql = 'SELECT * FROM guru WHERE nip = ?';
   db.query(sql, [nip], (err, fields) => {
     if (err) throw err;
     response(200, fields, 'get detail guru', res);
