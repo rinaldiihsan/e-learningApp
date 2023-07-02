@@ -62,7 +62,8 @@ const postMateri = (req, res) => {
 };
 
 const putMateri = (req, res) => {
-  const { id_m, judul_materi, input_materi } = req.body;
+  const id_m = req.params.id;
+  const { judul_materi, input_materi } = req.body;
   const sql = `UPDATE materi SET judul_materi = '${judul_materi}', input_materi = '${input_materi}' WHERE id_m = ${id_m}`;
 
   db.query(sql, (err, fields) => {
@@ -80,7 +81,7 @@ const putMateri = (req, res) => {
 };
 
 const deleteMateri = (req, res) => {
-  const { id_m } = req.body;
+  const id_m = req.params.id;
   const sql = `DELETE FROM materi WHERE id_m = ${id_m}`;
 
   db.query(sql, (err, fields) => {

@@ -13,9 +13,9 @@ router.post('/guru', postGuru);
 
 router.post('/guru/login', loginGuru);
 
-router.put('/guru', putGuru);
+router.put('/guru/:nip', putGuru);
 
-router.delete('/guru', deleteGuru);
+router.delete('/guru/:nip', deleteGuru);
 
 // Ekspor router agar dapat digunakan di file lain
 module.exports = router;

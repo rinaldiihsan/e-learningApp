@@ -63,7 +63,8 @@ const loginGuru = (req, res) => {
 };
 
 const putGuru = (req, res) => {
-  const { nip, nama_guru, Password } = req.body;
+  const nip = req.params.nip;
+  const { nama_guru, Password } = req.body;
 
   const sql = `UPDATE guru SET nama_guru = '${nama_guru}', Password = '${Password}' WHERE nip = ${nip}`;
 
@@ -82,7 +83,7 @@ const putGuru = (req, res) => {
 };
 
 const deleteGuru = (req, res) => {
-  const { nip } = req.body;
+  const nip = req.params.nip;
   const sql = `DELETE FROM guru WHERE nip = ${nip}`;
 
   db.query(sql, (err, fields) => {

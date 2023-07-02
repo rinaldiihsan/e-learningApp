@@ -12,8 +12,8 @@ router.get('/materi/:id', getMateriById);
 
 router.post('/materi', postMateri);
 
-router.put('/materi', putMateri);
+router.put('/materi/:id', putMateri);
 
-router.delete('/materi', deleteMateri);
+router.delete('/materi/:id', deleteMateri);
 
 module.exports = router;

@@ -13,9 +13,9 @@ router.post('/siswa/login', loginSiswa);
 
 router.post('/siswa', postSiswa);
 
-router.put('/siswa', putSiswa);
+router.put('/siswa/:nis', putSiswa);
 
-router.delete('/siswa', deleteSiswa);
+router.delete('/siswa/:nis', deleteSiswa);
 
 // Ekspor router agar dapat digunakan di file lain
 module.exports = router;

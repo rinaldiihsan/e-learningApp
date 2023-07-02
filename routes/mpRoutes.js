@@ -11,9 +11,9 @@ router.get('/mata_pelajaran/:id', getMPbyID);
 
 router.post('/mata_pelajaran', postMataPelajaran);
 
-router.put('/mata_pelajaran', putMataPelajaran);
+router.put('/mata_pelajaran/:id', putMataPelajaran);
 
-router.delete('/mata_pelajaran', deleteMP);
+router.delete('/mata_pelajaran/:id', deleteMP);
 
 // Ekspor router agar dapat digunakan di file lain
 module.exports = router;

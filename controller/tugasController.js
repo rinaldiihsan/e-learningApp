@@ -60,7 +60,8 @@ const postTugas = (req, res) => {
 };
 
 const putTugas = (req, res) => {
-  const { id_t, nama_tugas, input_tugas, deadline } = req.body;
+  const id_t = req.params.id;
+  const { nama_tugas, input_tugas, deadline } = req.body;
   const sql = `UPDATE tugas SET nama_tugas = '${nama_tugas}',input_tugas ='${input_tugas}',deadline = '${deadline}' WHERE id_t = ${id_t}`;
 
   db.query(sql, (err, fields) => {
@@ -78,7 +79,7 @@ const putTugas = (req, res) => {
 };
 
 const deleteTugas = (req, res) => {
-  const { id_t } = req.body;
+  const id_t = req.params.id;
   const sql = `DELETE FROM tugas WHERE id_t = ${id_t}`;
 
   db.query(sql, (err, fields) => {

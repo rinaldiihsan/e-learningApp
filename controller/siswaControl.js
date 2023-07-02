@@ -1,6 +1,5 @@
 const db = require('../db/koneksi');
 const response = require('../response');
-const { generateToken } = require('../auth/jwt');
 
 const getSiswa = (res) => {
   const sql = 'SELECT * FROM siswa';
@@ -64,7 +63,8 @@ const loginSiswa = (req, res) => {
 //akhirloginsiswa
 
 const putSiswa = (req, res) => {
-  const { nis, nama_siswa, password, kelas, jurusan } = req.body;
+  const nis = req.params.nis;
+  const { nama_siswa, password, kelas, jurusan } = req.body;
   const sql = `UPDATE siswa SET nama_siswa = '${nama_siswa}' , password = '${password}',kelas = '${kelas}',jurusan = '${jurusan}' WHERE nis = ${nis}`;
 
   db.query(sql, (err, fields) => {
@@ -82,7 +82,7 @@ const putSiswa = (req, res) => {
 };
 
 const deleteSiswa = (req, res) => {
-  const { nis } = req.body;
+  const nis = req.params.nis;
   const sql = `DELETE FROM siswa WHERE nis = ${nis}`;
 
   db.query(sql, (err, fields) => {

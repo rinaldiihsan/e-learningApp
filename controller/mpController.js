@@ -51,7 +51,8 @@ const postMataPelajaran = (req, res) => {
 };
 
 const putMataPelajaran = (req, res) => {
-  const { id_mp, nama_mp } = req.body;
+  const id_mp = req.params.id;
+  const { nama_mp } = req.body;
   const sql = `UPDATE mata_pelajaran SET nama_mp = '${nama_mp}' WHERE id_mp= ${id_mp}`;
 
   db.query(sql, (err, fields) => {
@@ -69,7 +70,7 @@ const putMataPelajaran = (req, res) => {
 };
 
 const deleteMP = (req, res) => {
-  const { id_mp } = req.body;
+  const id_mp = req.params.id;
   const sql = `DELETE FROM mata_pelajaran WHERE id_mp = ${id_mp}`;
 
   db.query(sql, (err, fields) => {

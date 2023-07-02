@@ -12,8 +12,8 @@ router.get('/tugas/:id', getTugasById);
 
 router.post('/tugas', postTugas);
 
-router.put('/tugas', putTugas);
+router.put('/tugas/:id', putTugas);
 
-router.delete('/tugas', deleteTugas);
+router.delete('/tugas/:id', deleteTugas);
 
 module.exports = router;
